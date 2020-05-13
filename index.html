@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="./style.css">
+    <title>Sorting Visualizer</title>
+</head>
+<body>
+    <nav class="navbar navbar-light bg-dark">
+        <ul class="navbar-items">
+            <li><button class="btn" role="button" id="newArr">Generate New Array</button></li>
+            <li class="input-range">
+                <label for="sizeAndSpeed">Array Size & Speed</label>
+                <input type="range" class="custom-range" id="sizeAndSpeed" min="5" max="200" value="100">
+            </li>
+            <li><button class="btn active" role="button" id="bubble">Bubble Sort</button></li>
+            <li><button class="btn" role="button" id="merge">Merge Sort</button></li>
+            <li><button class="btn" role="button" id="quick">Quick Sort</button></li>
+            <li><button class="btn" role="button" id="heap">Heap Sort</button></li>
+            <li><button class="btn" role="button" id="sort">Sort!</button></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <div class="bars">
+            
+        </div>
+    </div>
+    <script src="./scripts/bubble.js"></script>
+    <script src="./scripts/script.js"></script>
+</body>
+</html>

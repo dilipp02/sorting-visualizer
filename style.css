@@ -1,0 +1,61 @@
+body {
+    background-color: lightcyan;
+    color: whitesmoke;
+}
+
+*, ::after, ::before {
+    box-sizing: content-box;
+}
+
+.navbar-items {
+    width: 100%;
+    margin: 10px 0px;
+    padding-left: 0;
+    list-style-type: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+}
+
+li {
+    padding: 0px 10px;
+}
+
+input {
+    width: 100%;
+}
+
+.btn {
+    color: whitesmoke;
+}
+
+.btn.active {
+    color: lightsalmon;
+}
+
+.btn.focus, .btn:focus {
+    outline: 0;
+    box-shadow: none;
+}
+
+.container {
+    height: 550px;
+}
+
+.bars {
+    /* background-color: maroon; */
+    display: flex;
+    height: 100%;
+    justify-content: center;
+}
+
+.bar{
+    margin-left: 2px;
+    background-color: mediumorchid;
+}
+
+.btn.disabled, .btn:disabled {
+    cursor: default;
+    color: red;
+}
