@@ -26,21 +26,21 @@ input {
     width: 100%;
 }
 
-.btn {
+nav .btn {
     color: whitesmoke;
 }
 
-.btn.active {
+nav .btn.active {
     color: lightsalmon;
 }
 
-.btn.focus, .btn:focus {
+nav .btn.focus, .btn:focus {
     outline: 0;
     box-shadow: none;
 }
 
 .container {
-    height: 550px;
+    height: 500px;
 }
 
 .bars {
@@ -55,7 +55,20 @@ input {
     background-color: mediumorchid;
 }
 
-.btn.disabled, .btn:disabled {
+nav .btn.disabled, .btn:disabled {
     cursor: default;
     color: red;
+}
+
+.flowControl {
+    display: flex;
+    justify-content: center;
+}
+
+.flowControl .btn {
+    height: 40px;
+    width: 40px;
+    padding: 20px;
+    margin: 10px;
+    border-radius: 50%;
 }

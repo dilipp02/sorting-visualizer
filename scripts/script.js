@@ -1,7 +1,8 @@
 const area = document.querySelector('.bars');
 const bars = document.querySelectorAll('.bar');
 const sizeAndSpeed = document.getElementById('sizeAndSpeed');
-const allButtons = document.querySelectorAll('button');
+const navButtons = document.querySelectorAll('.navbar button');
+const flowButtons = document.querySelectorAll('.flowControl button');
 const windowWidth = area.offsetWidth;
 const windowHeight = area.offsetHeight;
 let sortingType, arrayValue, sorting, barWidth, heights;
@@ -30,10 +31,11 @@ function init() {
     barWidth = Math.round((windowWidth) / arrayValue);
     generateArray(arrayValue);
     drawArray(heights);
+    flowButtons.forEach(button => button.disabled = true);
 }
 
 function disableButtons () {
-    allButtons.forEach(button => {
+    navButtons.forEach(button => {
         if(button.id === "newArr" || button.id === "sort")
             button.disabled = true;
     });
@@ -41,7 +43,7 @@ function disableButtons () {
 }
 
 function enableButtons () {
-    allButtons.forEach(button => {
+    navButtons.forEach(button => {
         if(button.id === "newArr" || button.id === "sort")
             button.disabled = false;
     });
@@ -50,7 +52,6 @@ function enableButtons () {
 
 function handleSize (e) {
     if(arrayValue != e.target.value){
-        // console.log(e.target.value);
         arrayValue = e.target.value;
         barWidth = Math.round((windowWidth) / arrayValue);
         generateArray(arrayValue);
@@ -66,9 +67,13 @@ function buttonClickHandle (e) {
     }
     else if (eventTriggered === "sort"){
         disableButtons();
+        flowButtons.forEach(button => button.disabled = false);
         if(sortingType === "bubble"){
             bubbleSort(barWidth)
-                .then(() => enableButtons());
+                .then(() => {
+                    enableButtons();
+                    flowButtons.forEach(button => button.disabled = true);
+                });
         }
         // else if(sortingType === "merge"){
         //     mergeSort(barWidth)
@@ -85,7 +90,7 @@ function buttonClickHandle (e) {
     }
     else {
         sortingType = eventTriggered;
-        allButtons.forEach(button => {
+        navButtons.forEach(button => {
             button.classList.remove("active");
             if(button.id === eventTriggered)
                 button.classList.add("active");
@@ -98,4 +103,4 @@ init();
 sizeAndSpeed.addEventListener('mousemove', handleSize);
 sizeAndSpeed.addEventListener('change', handleSize);
 
-allButtons.forEach(element => element.addEventListener('click', buttonClickHandle));
+navButtons.forEach(element => element.addEventListener('click', buttonClickHandle));
