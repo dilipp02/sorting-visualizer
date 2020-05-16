@@ -26,7 +26,7 @@ function drawArray() {
 
 function init() {
     sortingType = "bubble";
-    arrayValue = 100;
+    arrayValue = sizeAndSpeed.value;
     sorting = false;
     barWidth = Math.round((windowWidth) / arrayValue);
     generateArray(arrayValue);
@@ -75,10 +75,13 @@ function buttonClickHandle (e) {
                     flowButtons.forEach(button => button.disabled = true);
                 });
         }
-        // else if(sortingType === "merge"){
-        //     mergeSort(barWidth)
-        //         .then(() => enableButtons());
-        // }
+        else if(sortingType === "merge"){
+            mergeSort(barWidth)
+                .then(() => {
+                    enableButtons();
+                    flowButtons.forEach(button => button.disabled = true);
+                });
+        }
         // else if(sortingType === "quick"){
         //     quickSort(barWidth)
         //         .then(() => enableButtons());
@@ -99,6 +102,9 @@ function buttonClickHandle (e) {
 }
 
 init();
+// console.log(heights);
+// mergeSort(heights, 0, heights.length - 1);
+// console.log(heights);
 
 sizeAndSpeed.addEventListener('mousemove', handleSize);
 sizeAndSpeed.addEventListener('change', handleSize);
