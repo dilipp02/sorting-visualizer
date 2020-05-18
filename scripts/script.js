@@ -82,6 +82,13 @@ function buttonClickHandle (e) {
                     flowButtons.forEach(button => button.disabled = true);
                 });
         }
+        else if(sortingType === "insertion") {
+            insertionSort(barWidth)
+                .then(() => {
+                    enableButtons();
+                    flowButtons.forEach(button => button.disabled = true);
+                });
+        }
         else if(sortingType === "merge"){
             mergeSort(barWidth)
                 .then(() => {
@@ -109,7 +116,7 @@ function buttonClickHandle (e) {
 
 init();
 // console.log(heights);
-// selectionSort(barWidth);
+// insertionSort(barWidth);
 
 sizeAndSpeed.addEventListener('mousemove', handleSize);
 sizeAndSpeed.addEventListener('change', handleSize);

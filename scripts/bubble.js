@@ -31,9 +31,9 @@ async function bubbleSort (speed) {
         for(let j=0 ; j<len-i-1 ; j++){
             height1 = parseInt(bars[j].style.height);
             height2 = parseInt(bars[j+1].style.height);
-            bars[j].style.backgroundColor = secondary_color;
-            bars[j+1].style.backgroundColor = secondary_color;
-            
+            bars[j].style.backgroundColor = temp_color;
+            bars[j+1].style.backgroundColor = temp_color;
+
             await sleep(speed);
             if(control == "pause"){
                 await pauseHandler();
@@ -41,12 +41,31 @@ async function bubbleSort (speed) {
                     isForward = false;
             }
 
-            if(height1 > height2)
+            if(height1 > height2){
+                bars[j].style.backgroundColor = secondary_color;
+                bars[j+1].style.backgroundColor = secondary_color;
+
+                await sleep(speed);
+                if(control == "pause"){
+                    await pauseHandler();
+                    if(isForward)
+                        isForward = false;
+                }
+
                 [bars[j].style.height, bars[j+1].style.height] = [`${height2}px`, `${height1}px`];
 
+                await sleep(speed);
+                if(control == "pause"){
+                    await pauseHandler();
+                    if(isForward)
+                        isForward = false;
+                }
+                
+                bars[j].style.backgroundColor = temp_color;
+                bars[j+1].style.backgroundColor = temp_color;
+            }
             bars[j].style.backgroundColor = primary_color;
             bars[j+1].style.backgroundColor = primary_color;
-            
         }
         bars[len-i-1].style.backgroundColor = success_color;
     }
