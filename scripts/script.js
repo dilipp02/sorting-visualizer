@@ -75,6 +75,13 @@ function buttonClickHandle (e) {
                     flowButtons.forEach(button => button.disabled = true);
                 });
         }
+        else if(sortingType === "selection") {
+            selectionSort(barWidth)
+                .then(() => {
+                    enableButtons();
+                    flowButtons.forEach(button => button.disabled = true);
+                });
+        }
         else if(sortingType === "merge"){
             mergeSort(barWidth)
                 .then(() => {
@@ -82,15 +89,8 @@ function buttonClickHandle (e) {
                     flowButtons.forEach(button => button.disabled = true);
                 });
         }
-        else if(sortingType === "quick"){
-            quickSort(barWidth)
-                .then(() => {
-                    enableButtons();
-                    flowButtons.forEach(button => button.disabled = true);
-                });
-        }
         else {
-            selectionmergeSort(barWidth)
+            quickSort(barWidth)
                 .then(() => {
                     enableButtons();
                     flowButtons.forEach(button => button.disabled = true);
@@ -108,9 +108,8 @@ function buttonClickHandle (e) {
 }
 
 init();
-console.log(heights);
-quickRec(0, heights.length - 1);
-console.log(heights);
+// console.log(heights);
+// selectionSort(barWidth);
 
 sizeAndSpeed.addEventListener('mousemove', handleSize);
 sizeAndSpeed.addEventListener('change', handleSize);

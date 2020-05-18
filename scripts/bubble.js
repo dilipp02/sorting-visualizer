@@ -4,6 +4,8 @@ const forward = document.querySelector('.forward');
 const primary_color = "mediumorchid";
 const secondary_color = "red";
 const success_color = "green";
+const temp_color = "yellow";
+const min_color = "gold";
 let control = "play";
 let isForward = false;
 

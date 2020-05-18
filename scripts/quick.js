@@ -1,4 +1,3 @@
-const temp_color = "yellow";
 let partitionAt;
 
 async function partition (low, high) {
@@ -6,6 +5,12 @@ async function partition (low, high) {
     // console.log(bars[high]);
     const pivot = parseInt(bars[high].style.height);
     bars[high].style.backgroundColor = temp_color;
+    await sleep(speedMs);
+    if(control == "pause") {
+        await pauseHandler();
+        if(isForward)
+            isForward = false;
+    }
     let i=low-1, heighti, heightj;
     // console.log(low, high);
     for(let j=low ; j<high ; j++){
