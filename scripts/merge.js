@@ -18,16 +18,15 @@ async function merge (low, mid, high) {
     while(i < n1 && j < n2){
         bars[low + i].style.backgroundColor = secondary_color;
         bars[mid + 1 + j].style.backgroundColor = secondary_color;
-        
         await sleep(speedMs);
         if(control == "pause") {
             await pauseHandler();
             if(isForward)
                 isForward = false;
         }
-
         bars[low + i].style.backgroundColor = primary_color;
         bars[mid + 1 + j].style.backgroundColor = primary_color;
+
         if(arrLeft[i] <= arrRight[j]) {
             bars[low+k].style.height = `${arrLeft[i]}px`;
             i++;
@@ -41,15 +40,14 @@ async function merge (low, mid, high) {
     
     while(i < n1){
         bars[low + i].style.backgroundColor = secondary_color;
-
         await sleep(speedMs);
         if(control == "pause") {
             await pauseHandler();
             if(isForward)
                 isForward = false;
         }
-
         bars[low + i].style.backgroundColor = primary_color;
+
         bars[low+k].style.height = `${arrLeft[i]}px`;
         i++;
         k++;
@@ -57,15 +55,14 @@ async function merge (low, mid, high) {
 
     while(j < n2){
         bars[mid + 1 + j].style.backgroundColor = secondary_color;
-
         await sleep(speedMs);
         if(control == "pause") {
             await pauseHandler();
             if(isForward)
                 isForward = false;
         }
-
         bars[mid + 1 + j].style.backgroundColor = primary_color;
+        
         bars[low+k].style.height = `${arrRight[j]}px`;
         j++;
         k++;

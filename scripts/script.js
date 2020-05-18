@@ -82,14 +82,20 @@ function buttonClickHandle (e) {
                     flowButtons.forEach(button => button.disabled = true);
                 });
         }
-        // else if(sortingType === "quick"){
-        //     quickSort(barWidth)
-        //         .then(() => enableButtons());
-        // }
-        // else {
-        //     heapmergeSort(barWidth)
-        //         .then(() => enableButtons());
-        // }
+        else if(sortingType === "quick"){
+            quickSort(barWidth)
+                .then(() => {
+                    enableButtons();
+                    flowButtons.forEach(button => button.disabled = true);
+                });
+        }
+        else {
+            selectionmergeSort(barWidth)
+                .then(() => {
+                    enableButtons();
+                    flowButtons.forEach(button => button.disabled = true);
+                });
+        }
     }
     else {
         sortingType = eventTriggered;
@@ -102,9 +108,9 @@ function buttonClickHandle (e) {
 }
 
 init();
-// console.log(heights);
-// mergeSort(heights, 0, heights.length - 1);
-// console.log(heights);
+console.log(heights);
+quickRec(0, heights.length - 1);
+console.log(heights);
 
 sizeAndSpeed.addEventListener('mousemove', handleSize);
 sizeAndSpeed.addEventListener('change', handleSize);
