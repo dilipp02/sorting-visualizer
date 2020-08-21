@@ -30,6 +30,10 @@ nav .btn {
     color: whitesmoke;
 }
 
+nav .btn:hover {
+    color: green;
+}
+
 nav .btn.active {
     color: lightsalmon;
 }
@@ -55,7 +59,7 @@ nav .btn.focus, .btn:focus {
     background-color: mediumorchid;
 }
 
-nav .btn.disabled, .btn:disabled {
+nav .btn:disabled {
     cursor: default;
     color: red;
 }
@@ -71,4 +75,11 @@ nav .btn.disabled, .btn:disabled {
     padding: 20px;
     margin: 10px;
     border-radius: 50%;
+}
+
+.flowControl .btn:disabled {
+    cursor: default;
+    color: #343a40;
+    background-color: gray;
+    border: gray;
 }
